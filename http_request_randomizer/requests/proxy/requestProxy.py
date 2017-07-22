@@ -107,7 +107,7 @@ class RequestProxy:
                 raise ConnectionError("HTTP Response [403] - Permission denied error")
             elif request.status_code == 503:
                 raise ConnectionError("HTTP Response [503] - Service unavailable error")
-            print('RR Status {}'.format(request.status_code))
+            self.logger.debug("RR Status {}".format(request.status_code))
             return request
         except ConnectionError:
             try:
